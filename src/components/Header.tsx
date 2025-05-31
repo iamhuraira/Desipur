@@ -3,7 +3,7 @@
 import { Skeleton } from "antd";
 import clsx from "clsx";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -11,8 +11,7 @@ import SearchInput from "@/components/SearchInput";
 import { useGetMe } from "@/hooks/me";
 import { toggleSidebar } from "@/redux/slices/layoutSlice";
 
-import Button from "./Button/Button";
-import { ArrowForwardIcon, CompanyLogo, HamBurger } from "./svg-components";
+import { CompanyLogo, HamBurger } from "./svg-components";
 import Typography from "./Typography";
 import AvatarMenu from "./ui/Profile/AvatarMenu";
 
@@ -37,11 +36,6 @@ export default function Header() {
   const pathname = usePathname();
   const pathItem = pathname?.split("/")[2];
   const pathItem2nd = pathname?.split("/")[3];
-  const isArticleEditor = pathname.includes(
-    "/dashboard/article-management/edit",
-  );
-  const allowGoBack = pathname.includes("/article-generation/outline");
-  const router = useRouter();
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -109,21 +103,11 @@ export default function Header() {
 
       <header
         className={clsx(
-          "my-4 w-full relative px-5 lg:mb-[40px] lg:mt-[30px] lg:px-8",
-          isArticleEditor && "hidden",
+          "my-4 w-full relative px-5 lg:mb-[40px] lg:mt-[30px] lg:px-8"
         )}
       >
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-3">
-            {allowGoBack && (
-              <Button secondary onClick={() => router.back()}>
-                <div className="flex gap-2">
-                  <ArrowForwardIcon className="size-6 rotate-180 " />
-                  {/*Go Back*/}
-                </div>
-              </Button>
-            )}
-
             <Typography className="" type="title" size="regular">
               {pathItem
                 ? sidebarItems.find((item) => item.href === pathItem)?.title
