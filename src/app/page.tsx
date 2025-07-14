@@ -1,3 +1,4 @@
+import OrderForm from "@/components/OrderForm";
 
 export async function generateMetadata() {
   return {
@@ -10,5 +11,5 @@ export async function generateMetadata() {
 export default function Index() {
 
 
-  return <div>Hello</div>;
+  return <OrderForm />;
 }
