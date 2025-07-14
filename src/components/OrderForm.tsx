@@ -15,7 +15,7 @@ interface Product {
 }
 
 const products: Product[] = [
-    { id: '1', name: 'Forest Honey 400g', price: 2700 },
+    { id: '1', name: 'Forest Honey 500g', price: 2700 },
     { id: '2', name: 'Harbel Shampoo 50ml', price: 200 },
     { id: '3', name: 'Harbel Shampoo 200ml', price: 750 },
 ];
